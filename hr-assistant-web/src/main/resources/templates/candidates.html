@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Search page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script th:src="@{assets/bootstrap-select-1.13.9/dist/js/bootstrap-select.js}"></script>
+
+    <link th:rel="stylesheet" th:href="@{assets/bootstrap-select-1.13.9/dist/css/bootstrap-select.css}"/>
+    <link th:rel="stylesheet" th:href="@{webjars/bootstrap/4.3.1/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/css/main.css}" type="text/css"/>
+</head>
+<body>
+    <nav>
+        <div th:replace="~{menu :: menu(index)}">
+        </div>
+    </nav>
+
+    <div class="content">
+        <h2>Кандидаты</h2>
+        <table class="table table-hover">
+            <thead class="table-primary">
+            <tr>
+                <th>#</th>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Отчество</th>
+                <th>Дата рождения</th>
+                <th>Email</th>
+                <th>Телефон</th>
+                <th>Дата обращения</th>
+                <th>Вакансия</th>
+                <th>Этап</th>
+                <th>Резюме</th>
+                <th>Тестовое задание</th>
+            </tr>
+            </thead>
+            <tr class="responsive-row" th:each="candidateModel,iter : ${candidateModels}">
+                <td th:text="${iter.count}"/>
+                <td th:text="${candidateModel.lastName}"/>
+                <td th:text="${candidateModel.firstName}"/>
+                <td th:text="${candidateModel.middleName}"/>
+                <td th:text="${candidateModel.dateOfBirth}"/>
+                <td th:text="${candidateModel.email}"/>
+                <td th:text="${candidateModel.phone}"/>
+                <td th:text="${candidateModel.applyDate}"/>
+                <td th:text="${candidateModel.vacancyName}"/>
+                <td th:text="${candidateModel.stage}"/>
+                <td>
+                    <div th:if="${#strings.isEmpty(candidateModel.cvFileName)}">
+                        Файл отсутствует
+                    </div>
+                    <div th:unless="${#strings.isEmpty(candidateModel.cvFileName)}">
+                        <form th:action="@{'/candidates/cv/' + ${candidateModel.cvFileName}}" method="get">
+                            <button type="submit" class="btn btn-outline-warning" aria-pressed="true">
+                                <i>Скачать</i>
+                            </button>
+                        </form>
+                    </div>
+                </td>
+                <td>
+                    <div th:if="${#strings.isEmpty(candidateModel.assignmentFileName)}">
+                        Файл отсутствует
+                    </div>
+                    <div th:unless="${#strings.isEmpty(candidateModel.assignmentFileName)}">
+                        <form th:action="@{'/candidates/assignment/' + ${candidateModel.assignmentFileName}}" method="get">
+                            <button type="submit" class="btn btn-outline-warning" aria-pressed="true">
+                                <i>Скачать</i>
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>

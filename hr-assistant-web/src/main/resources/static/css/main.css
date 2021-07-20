@@ -1,0 +1,59 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+a {
+  text-decoration:none;
+}
+
+.content {
+    margin: 50px 50px;
+}
+
+.navigation-container {
+	background-color: #e7e6e8;
+}
+
+.container {
+    margin: 50px 200px 50px 200px;
+}
+
+.form-inline {
+	margin-top: 10px;
+}
+
+.error {
+    color: #ff0000
+}
+
+.frame {
+    border-width: 1px;
+    border-color: rgb(190,190,190);
+    border-style: solid;
+}
+
+.nav-item-container ul li {
+    display: inline-block;
+    width: 150px;
+    margin-left: 10px;
+    text-align: center;
+}
+
+.nav-but a {
+	color: #909091;
+}
+
+.nav-but a:hover {
+	color: #242e36;
+}
+
+.logout-but{
+	outline: none !important;
+    border: 0 !important;
+    background: transparent !important;
+}

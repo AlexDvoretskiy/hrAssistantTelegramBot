@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script th:src="@{assets/bootstrap-select-1.13.9/dist/js/bootstrap-select.js}"></script>
+
+    <link th:rel="stylesheet" th:href="@{assets/bootstrap-select-1.13.9/dist/css/bootstrap-select.css}"/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css} "/>
+    <link rel="stylesheet" th:href="@{/css/main.css}" type="text/css"/>
+</head>
+
+<body>
+<div class="wrapper">
+    <nav>
+        <div th:replace="~{menu :: menu(vacancy)}">
+        </div>
+    </nav>
+    <div class="content container">
+        <h2>Добавить вакансию</h2>
+        <br>
+        <form th:action="@{'/vacancies/add/'}" th:object="${vacancy}" method="post" enctype="multipart/form-data">
+            <div class="error" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"/>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="title">Наименование</label>
+                <div class="col-sm-10">
+                    <input th:field="*{title}" type="text" class="form-control" id="title">
+                </div>
+            </div>
+            <div class="error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"/>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="description">Описание</label>
+                <div class="col-sm-10">
+                    <textarea th:field="*{description}" class="form-control" id="description" rows="4"></textarea>
+                </div>
+            </div>
+            <div class="error" th:if="${#fields.hasErrors('requirements')}" th:errors="*{requirements}"/>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="requirements">Требования</label>
+                <div class="col-sm-10">
+                    <textarea th:field="*{requirements}" class="form-control" id="requirements" rows="4"></textarea>
+                </div>
+            </div>
+            <div class="error" th:if="${#fields.hasErrors('conditions')}" th:errors="*{conditions}"/>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="conditions">Условия</label>
+                <div class="col-sm-10">
+                    <textarea th:field="*{conditions}" class="form-control" id="conditions" rows="4"></textarea>
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="salary">Зарплата</label>
+                <div class="col-sm-10">
+                    <input th:field="*{salary}" type="number" class="form-control" id="salary" data-decimals="2" min="0" step="1">
+                </div>
+            </div>
+            <div>
+                <h5>Выберите тестовое задание из списка или загрузите новый файл (doc, pdf)</h5>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group row">
+                            <label class="col-sm-2 col-form-label" for="licenceCategory">Выбрать из списка</label>
+                            <div class="col-sm-10">
+                                <select th:field="*{assignmentFileId}" class="form-control" id="licenceCategory" multiple="multiple">
+                                    <option th:each="assignment : ${assignments}"
+                                            th:value="${assignment.id}"
+                                            th:text="${assignment.description}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="frame col">
+                        <div class="row">
+                            <div class="col">
+                                <label class="form-label" for="assignmentFile">Загрузить файл</label>
+                                <input type="file" class="form-control-file" id="assignmentFile" name="assignmentFile"/>
+                            </div>
+                            <div class="col">
+                                <label class="col-sm-2 col-form-label" for="assignmentDesc">Наименование</label>
+                                <input th:field="*{assignmentDescription}" type="text" class="form-control" id="assignmentDesc">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Добавить </button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
