@@ -15,11 +15,8 @@ Main functions:
 
 ### Some screenshots
 Telegram bot screenshots
-<a href="url"><img src="https://github.com/AlexDvoretskiy/hrAssistantTelegramBot/blob/master/screenshots/hr_bot_1.jpeg" align="left" width="220" ></a>
-<a href="url"><img src="https://github.com/AlexDvoretskiy/hrAssistantTelegramBot/blob/master/screenshots/hr_bot_2.jpeg" align="left" width="220" ></a>
-<a href="url"><img src="https://github.com/AlexDvoretskiy/hrAssistantTelegramBot/blob/master/screenshots/hr_bot_3.jpg" align="left" width="220" ></a>
-<a href="url"><img src="https://github.com/AlexDvoretskiy/hrAssistantTelegramBot/blob/master/screenshots/hr_bot_4.jpg" align="left" width="220" ></a>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+<img src="https://github.com/AlexDvoretskiy/hrAssistantTelegramBot/blob/master/screenshots/hr_bot_1.jpeg" width="200" /> <img src="https://github.com/AlexDvoretskiy/hrAssistantTelegramBot/blob/master/screenshots/hr_bot_2.jpeg" width="200" /> <img src="https://github.com/AlexDvoretskiy/hrAssistantTelegramBot/blob/master/screenshots/hr_bot_3.jpg" width="200" /> <img src="https://github.com/AlexDvoretskiy/hrAssistantTelegramBot/blob/master/screenshots/hr_bot_4.jpg" width="200" />
 
 Web application screenshots
 ![Webapp](https://github.com/AlexDvoretskiy/hrAssistantTelegramBot/blob/master/screenshots/hr_bot_web_1.PNG)
